@@ -1,0 +1,478 @@
+/*RESETS*/
+
+.header, .header-content, .logo, body, p, div {
+margin: 0;
+
+}
+
+ul {
+    padding: 0;
+}
+
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px rgb(121, 101, 235), 0 0 20px rgb(121, 101, 235),
+        0 0 10px #2b1f5fcb, 0 0 20px #2b1f5fcb, 0 0 30px #2b1f5fcb,
+        0 0 40px #2b1f5fcb, 0 0 50px #2b1f5fcb;
+    }
+    to {
+      text-shadow: 0 0 10px #fff, 0 0 20px #4500e6, 0 0 30px #4500e6,
+        0 0 40px #4500e6, 0 0 50px #4500e6, 0 0 60px #4500e6, 0 0 70px #4500e6;
+    }
+  }
+/*FONTS*/
+
+@font-face{
+    font-family: 'truckin';
+    src: url('./assets/Fonts/truckin.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'maccos_light';
+    src: url('./assets/Fonts/maccos_light.otf') format('opentype');
+}
+
+@font-face{
+    font-family: 'albaSuper';
+    src: url('./assets/Fonts/alba_super.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'moscoso';
+    src: url('./assets/Fonts/moscoso.ttf') format('truetype');
+}
+.truckin {
+    font-family: 'truckin';
+    font-size: 50px;
+    color: #6fa692;
+}
+.maccos {
+    font-family: 'maccos_light';
+    font-size: 50px;
+    color: #d99e32;
+}
+
+.albaSuper {
+    font-family: 'albaSuper';
+    font-size: 50px;
+    color: #bf3326;
+}
+
+.moscoso {
+    font-family: 'moscoso';
+    font-size: 50px;
+    color: #6fa692;
+}
+
+/*MOBILE VIEW*/
+body {
+    background-color: #f2e2ce;
+}
+
+.header {
+    background-color: #6fa692;
+}
+
+.header-content{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 5px;
+}
+
+.logo{
+    font-family: 'moscoso';
+    font-size: 50px;
+}
+.slogan {
+    font-family: 'albaSuper';
+    font-size: 30px;
+    color: white;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternat
+}
+.nav-list{
+display: flex;
+list-style: none;
+}
+
+.nav-item {
+    margin-left: 5px;
+}
+
+.nav-link {
+    text-decoration: none;
+    margin-left: 5px;
+    color: black;
+    font-family: 'truckin';
+}
+.nav2, .nav3 {
+    display: none;
+}
+
+
+main {
+flex: 1;
+margin: 30px 30px;
+}
+
+
+.cart {
+
+    border: 2px solid black;
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: column-reverse;
+    display: none;
+  
+}
+
+  .credit-form, .payment-button-container, .cash-form, .receipt, .cash-form-inout, .credit-receipt{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 20px;
+}
+.credit-form-container, .payment-options, .cash-form-container,   .cash-receipt-container, .credit-receipt-container{
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    right:0;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+  }
+.continue-checkout {
+    background-color: #73e6bc;
+    padding: 5px;
+    border-radius: 15%;
+    
+}
+
+
+.fa-times::before {
+    padding: 7px;
+}
+
+  .cash-form, .credit-form, .payment-button-container{
+      position: relative;
+      background-color: #6fa692;
+      color: black;
+      border-radius: 5px;
+      border: 3px groove #d96b2b;
+      display: flex;
+      justify-content: center;
+      font-family: 'moscoso';
+         
+  }
+
+.credit-form-DIV, .cash-form-DIV {
+    display: inline-block;
+    color: #40180f;
+    background-color: #fff;
+    border: 3px groove #d96b2b;
+    font-family: 'truckin';
+    margin: 10px 0;
+    padding: 5px;
+    flex: 1;
+   
+}
+
+input[type=text], select { 
+    display: inline-block;
+    border-radius: 5px;
+    border: 3px groove #d96b2b;
+    text-decoration: none;
+    font-family: 'truckin';
+    margin: 10px 0;
+    /* padding: 5px; */
+    flex: 1;
+}
+
+
+  .cash-checkout-exit-button, .credit-checkout-exit-button, #pmtsExitBtn, #cashExitBtn, #creditExitBtn {
+    visibility: hidden;
+    position: absolute;
+    border-radius: 50px;
+    color: #d99e32;
+    font-size: 30px;
+    /* border: 2px groove #40180f ; */
+    padding: 5px;
+    /* background-color: #f2e2ce; */
+    left: -8px;
+    top: -9px;
+  }
+  #pmtsExitBtn{
+    font-size: 25px;
+    left: -14px;
+    top: -15px;
+  }
+  .invalid-cash-amount, #invalidCardName, #invalidCardNum, #invalidCardExp, #invalidCardCVV {
+    color: red;
+    font-family: 'moscoso';
+    font-size: 12px;
+    border: 1px solid black;
+    background-color:  rgba(201, 197, 191, 0.5);
+    text-align: center;
+  }
+  .cash-receipt-button, .credit-receipt-button{
+      display: none;
+  }
+
+  .cbutton{
+      background-color:#d96b2b;
+      padding: tpx;
+      font-family: 'albaSuper';
+      font-size: 15px;
+      border-radius: 5px;
+      border: 2px ridge white;
+  }
+  .paybutton {
+    background-color:#d96b2b;
+    padding: 10px;
+    margin: 5px;
+    font-family: 'albaSuper';
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px ridge white;
+  }
+
+  .pbutton {
+      border: 2px groove #d96b2b;
+      border-radius: 5px;
+      background-color: #f2e2ce;
+      font-family: 'albaSuper';
+  }
+  .fa-receipt, .fa-print {
+    font-size: 20px;
+    margin: 10px 0;
+    padding:10px;
+  }
+
+  .receipt, .credit-receipt{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .rstyle {
+      font-size: 15px;
+      display: flex;
+      justify-content: space-evenly;
+  }
+ 
+  /* .book-container, .vinyl-container, .game-comtainer {
+      
+    
+  } */
+
+
+.item-box {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    align-items: center;
+    border: 2px solid #6fa692;
+    padding: 2px;
+    font-family: 'truckin';
+    background-color: #EBDF0F;
+    
+}
+
+.delete-button{
+    padding: 7px;
+    background-color: rgb(205, 22, 22);
+    border-radius: 25%;
+}
+
+.bought-items {
+    font-family: 'truckin';
+    padding: 10px;
+
+}
+
+
+ .p-price {
+     margin-left: 10px;
+
+ }
+
+ .p-name {
+     margin-left: 10px;
+ }
+
+
+
+.vinyl-box, .book-box, .game-box {
+    border: 2px solid black;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    flex: 2;
+
+}
+
+.vinyl-box {
+    border-color: #514F76;
+
+}
+
+.book-box{
+    border-color: rgb(159, 49, 55);
+}
+
+.game-box {
+    border-color: rgb(213, 204, 33);  
+}
+
+.para-button {
+display: flex;
+flex-direction: column;
+justify-content: center;
+position: relative;
+width: 175px;
+margin-left:60px;
+}
+
+li {
+    list-style: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.ibutton{
+    border-radius: 15px;
+    background-color: #40180f;
+    padding: 5px;
+    font-family: 'albaSuper';
+    color: white;
+    /* width: 50%; */
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    position: static;
+
+}
+
+
+
+.picture {
+    height: 100px;
+    width: 100px;
+}
+
+.book {
+    height: 150px;
+     
+}
+
+.music {
+    background-image: url(./assets/new_vinyl.jpg);
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    font-family: 'albaSuper';
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    margin: 0px;
+}
+
+
+.book-label {
+    background-image: url(./assets/Background/book2.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    color: white;
+    /* background-color: #d99e32; */
+    font-family: 'albaSuper';
+    text-align: center;
+    font-size: x-large;
+
+    
+}
+
+
+.game {
+    background-image: url(./assets/Background/chess4.jpeg);
+    background-position: center; 
+    background-repeat: no-repeat;
+   /* background-size: cover; */
+    color: white;
+/* background-color: aqua; */
+font-family: 'albaSuper';
+text-align: center;
+font-size: x-large;
+
+}
+
+footer {
+    display: none;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+ body {
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+
+ }
+main {
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+    justify-content: space-between;
+    
+}
+
+.nav2, .nav3 {
+    display: contents;
+}
+
+.cart {
+    display: flex;
+    background-color: coral;
+    justify-content: flex-end;
+    margin: 40px 30px 0px 0px;
+    width: 200px;
+}
+
+.bought-items {
+    font-family: 'truckin';
+    padding: 20px;
+    background-color: #f2e2ce;
+
+}
+/* .books {
+    margin: 35px;
+} */
+.item-box {
+    font-family: 'truckin';
+
+}
+
+.para-button {
+    padding-left: 15px;
+}
+
+.bought-items {
+    background-color: white;
+}
+.music, .books, .game {
+    margin-top: 40px;
+}
+
+
+
+}
+
+
+

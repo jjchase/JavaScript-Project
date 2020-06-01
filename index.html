@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>POS</title>
+    <script>
+        let printSound = new Audio();
+        printSound.src = "./assets/Sounds/printsound.wav"
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">BBV</h1>
+            <h2 class="slogan">It's all in the name, baby!</h2>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item nav2"><a class="nav-link" href="#">About </a></li>
+                    <li class="nav-item nav3"><a class="nav-link" href="#">Contact </a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <main>
+        <!--CART SECTION-->
+        <section class="cart">
+            <div class="bought-items">
+                <p class="sub-total">Subtotal:$0.00</p>
+                <p class="sales-tax">Sales Tax:$0.00</p>
+                <p class="final-total">Current Total: $0.00</p>
+                <button class="continue-checkout">Continue to Checkout</button>
+            </div>
+        </section>
+
+        <!-- new content pop=up -->
+        <section class="payment-options">
+            <div class="payment-button-container">
+                <button class="cash-checkout paybutton">Cash</button>
+                <button class="credit-checkout paybutton">Credit/Debit</button>
+                <button type="click" class="payment-options-exit-button"><i class="fas fa-times"
+                        id="pmtsExitBtn"></i></button>
+            </div>
+        </section>
+        <!-- end new content pop-up -->
+        <!-- new cash form  -->
+        <section class="cash-form-container">
+            <div class="cash-form">
+                <div class="cash-form-DIV">
+                    <form class="cash-form-input">
+                        <div class="cash-checkout-total-container"></div>
+                        <label for="cash-tendered">Tendered Amount:</label>
+                        <input type="text" id="cash-tendered" name="cash-tendered"><br>
+                        <button type="button" class="cash-pay pbutton">Submit</button><br>
+                        <p class="change-due"></p>
+                        <button type="button" class="cash-receipt-button"> <i class="fas fa-receipt"></i></button>
+                        <button type="click" class="cash-checkout-exit-button cbutton"><i class="fas fa-times"
+                                id="cashExitBtn"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="cash-receipt-container rcstyle">
+                <div class="receipt rstyle">
+                    <button class="exit-button">Exit</button>
+                    <button class="print-button" onmousedown="printSound.play()"><i class="fas fa-print"></i></button>
+
+                </div>
+        </section>
+
+        <!-- end new cash form  -->
+        <div class="credit-form-container">
+            <form class="credit-form">
+                <p class="credit-checkout-total-container"></p>
+                <div class="credit-form-DIV">
+                    <label for="cardName">Name:</label><br>
+                    <input type="text" id="cardName" name="cardName">
+                    <p id="invalidCardName"></p>
+                    <label for="cardNum">Card Number:</label><br>
+                    <input type="text" id="cardNum" name="cardNum" maxlength="16">
+                    <p id="invalidCardNum"></p>
+                    <!-- new code -->
+                    <p>Expiration Date:</p>
+                    <label for="expMonth"></label>
+                    <select name="expMonth" id="expMonth">
+                        <option selected>Expiration Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July </option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <label for="expYear"></label>
+                    <select name="expYear" id="expYear">
+                        <option selected>Expiration Year</option>
+                        <option value="1">2020</option>
+                        <option value="2">2021</option>
+                        <option value="3">2022</option>
+                        <option value="4">2023</option>
+                    </select>
+                    <p id="invalidCardExp"></p>
+
+                    <!-- <label for="expDate">Expiration Date:</label>
+                <input type="text" id="expDate" name="expDate" placeholder="MM/YY"> -->
+                    <label for="CVV">CVV:</label>
+                    <input type="text" id="CVV" name="CVV" maxlength="3">
+                    <p id="invalidCardCVV"></p>
+                </div>
+                <button type="button" class="credit-checkout-button cbutton">Checkout</button>
+                <p id="paymentSuccess"></p>
+                <p id="balance-remaining"></p>
+                <button type="button" class="credit-receipt-button"> <i class="fas fa-receipt"></i></button>
+                <button type="click" class="credit-checkout-exit-button"><i class="fas fa-times"
+                        id="creditExitBtn"></i></button>
+            </form>
+        </div>
+        <div class="credit-receipt-container rcstyle">
+            <div class="credit-receipt rstyle">
+                <button class="credit-exit-button">Exit</button>
+                <button class="credit-print-button" onmousedown="printSound.play()"><i
+                        class="fas fa-print"></i></button>
+            </div>
+        </div>
+        <!-- VINYL SECTION -->
+        <section class="category vinyl">
+            <div class="music">
+                <p>VINYL</p>
+            </div>
+            <div class="vinyl-container">
+                <div class="florence vinyl-box">
+                    <img class="picture" src="./assets/florence_vinyl_2.jpeg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>How Big, How Blue, How Beautiful</li>
+                            <li>Florence and the Machine</li>
+                            <li>Indie Rock, Chamber Pop, Neo Soul, Folk</li>
+                            <li>$24.99</li>
+                        </ul>
+                        <button type="button" class=" vinyl ibutton" data-amount="24.99"
+                            data-product="How Big, Blue, Beautiful: Vinyl">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="hozier vinyl-box">
+                    <img class="picture" src="./assets/hozier_vinyl.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Wasteland Baby</li>
+                            <li>Hozier</li>
+                            <li>Indie Rock, Blues Rock, Folk, Contemporary R&B</li>
+                            <li>$29.99</li>
+                        </ul>
+                        <button class="vinyl ibutton" data-amount="29.99" data-product="Wasteland Baby: Vinyl">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="khruangbin vinyl-box">
+                    <img class="picture" src="./assets/khruangbin_vinyl.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Texas Sun</li>
+                            <li>Khruangbin and Leon Bridges </li>
+                            <li>Psychedelia, Soul, Funk</li>
+                            <li>$24.99</li>
+                        </ul>
+                        <button class="vinyl ibutton" data-amount="24.99" data-product="Texas Sun: Vinyl">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="thundercat vinyl-box">
+                    <img class="picture" src="./assets/thundercat_vinyl.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Drunk</li>
+                            <li>Thundercat</li>
+                            <li>Funk, Contemporary R&B, Soul, Jazz Fusion</li>
+                            <li>$26.99</li>
+                        </ul>
+                        <button class="vinyl ibutton" data-amount="26.99" data-product="Drunk: Vinyl">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="quad vinyl-box">
+                    <img class="picture" src="./assets/quad.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Quadrophenia</li>
+                            <li>The Who</li>
+                            <li>Classic Rock</li>
+                            <li>$30.00</li>
+                        </ul>
+                        <button class="vinyl ibutton" data-amount="30.00" data-product="Quadrophenia: Vinyl">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="wildstyle vinyl-box">
+                    <img class="picture" src="./assets/wildstyle.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Wildstyle </li>
+                            <li>Bassnectar</li>
+                            <li>Electronic</li>
+                            <li>$25.00</li>
+                        </ul>
+                        <button class="vinyl ibutton" data-amount="25.00" data-product="Wildstyle: Vinyl">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="player vinyl-box">
+                    <img class="picture" src="./assets/record-player.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+
+                            <li>Record Player</li>
+                            <li>Kedok</li>
+                            <li>$49.99</li>
+                        </ul>
+                        <button class="vinyl ibutton" data-amount="49.99" data-product="Record Player">Add To
+                            Cart</button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- BOOK SECTION -->
+        </section>
+        <section class="category books">
+            <div class="book-label">
+                <p>BOOKS</p>
+            </div>
+            <div class="book-container">
+                <div class="lifeofpi book-box">
+                    <img class="picture book" src="./assets/lifeofpi.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Life of Pi</li>
+                            <li>Yann Martel</li>
+                            <li>Philosophical Fiction</li>
+                            <li>$14.99</li>
+                        </ul>
+                        <button class="books ibutton" data-amount="14.99" data-product="Life of Pi: Book">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="educated book-box">
+                    <img class="picture book" src="./assets/educated.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Educated</li>
+                            <li>Tara Westover</li>
+                            <li>Memoir</li>
+                            <li>$19.99</li>
+                        </ul>
+                        <button class="books ibutton" data-amount="19.99" data-product="Educated: Book">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="monique book-box">
+                    <img class="picture book" src="./assets/monique_book.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Monique and the Mango Rains</li>
+                            <li>Kris Holloway, John Bidwell </li>
+                            <li>Cultural Anthropology, Memoir</li>
+                            <li>$9.99</li>
+                        </ul>
+                        <button class="books ibutton" data-amount="9.99"
+                            data-product="Monique and the Mango Rains: Book">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="moonglow book-box">
+                    <img class="picture book" src="./assets/moonglow_book.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Moonglow</li>
+                            <li>Michael Chabon </li>
+                            <li>Memoir</li>
+                            <li>$14.99</li>
+                        </ul>
+                        <button class="books ibutton" data-amount="14.99" data-product="Moonglow: Book">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="whoiam book-box">
+                    <img class="picture book" src="./assets/who-i-am.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Who I Am</li>
+                            <li>Pete Townshend</li>
+                            <li>Autobiography</li>
+                            <li>$11.00</li>
+                        </ul>
+                        <button class="books ibutton" data-amount="11.00" data-product="Who I Am: Book">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="biggest book-box">
+                    <img class="picture book" src="./assets/biggest-brother.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Biggest Brother</li>
+                            <li>Larry Alexander</li>
+                            <li>Biography</li>
+                            <li>$15.00</li>
+                        </ul>
+                        <button class="books ibutton" data-amount="15.00" data-product="Biggest Brother: Book">Add To
+                            Cart</button>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+            <!-- GAME SECTION  -->
+        </section>
+        <section class="category games">
+            <div class="game">
+                <p>BOARD GAMES</p>
+            </div>
+            <div class="game-container">
+                <div class="candyland game-box">
+                    <img class="picture" src="./assets/candyland.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Candyland</li>
+                            <li>Hasboro</li>
+                            <li>Racing</li>
+                            <li>$9.99</li>
+                        </ul>
+                        <button class="games ibutton" data-amount="9.99" data-product="Candyland: Game">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="life game-box">
+                    <img class="picture" src="./assets/game_of_life.jpeg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>The Game of Life</li>
+                            <li>Educational, Money</li>
+                            <li>Hasboro</li>
+                            <li>$17.99</li>
+                        </ul>
+                        <button class="games ibutton" data-amount="17.99" data-product="The Game of Life: Game">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="mysterium game-box">
+                    <img class="picture" src="./assets/mysterium_game.png" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Mysterium</li>
+                            <li>Asmodee </li>
+                            <li>Murder Mystery</li>
+                            <li>$52.99</li>
+                        </ul>
+                        <button class="games ibutton" data-amount="52.99" data-product="Mysterium: Game">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="betrayal game-box">
+                    <img class="picture" src="./assets/betrayal_game.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Betrayal at House on the Hill</li>
+                            <li>Avalon Hill </li>
+                            <li>Horror, Exploration</li>
+                            <li>$24.99</li>
+                        </ul>
+                        <button class="games ibutton" data-amount="24.99"
+                            data-product="Betrayal at House on the Hill: Game">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="daddy game-box">
+                    <img class="picture" src="./assets/daddy.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Don't Wake Daddy</li>
+                            <li>Hasbro</li>
+                            <li>Ages 3+</li>
+                            <li>$17.99</li>
+                        </ul>
+                        <button class="games ibutton" data-amount="30.00" data-product="Don't Wake Daddy: Game">Add To
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="catan game-box">
+                    <img class="picture" src="./assets/catan.jpg" alt="">
+                    <div class="para-button">
+                        <ul>
+                            <li>Catan</li>
+                            <li>Catan</li>
+                            <li>Strategy, ages 10+</li>
+                            <li>$22.00</li>
+                        </ul>
+                        <button class="games ibutton" data-amount="22.00" data-product="Catan: Game">Add To
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>This will be the footer</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/8773d0f31a.js" crossorigin="anonymous"></script>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
